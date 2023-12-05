@@ -4,6 +4,17 @@
 */
 
 function isPalindrome(str) {
+  str = str.replaceAll(" ", "").replaceAll(",", "").replaceAll(".", "")
+           .replaceAll("!", "").replaceAll("?", "");
+
+  for (let i = 0; i < str.length/2; i++) {
+    const [ch1, ch2] = [str[i], str[str.length - i -1]];
+
+    if (ch1.toLowerCase() !== ch2.toLowerCase()) {
+      return false;
+    }
+  }
+
   return true;
 }
 
